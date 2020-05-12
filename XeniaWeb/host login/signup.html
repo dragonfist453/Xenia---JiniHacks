@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/signup.css">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <script>
+        function checkPassword() {
+            form = document.getElementById("register")
+            password1 = form.password.value;
+            password2 = form.confirm_password.value;
+
+            if (password1 == '')
+                alert("Please Enter Password");
+
+            else if (password2 == '')
+                alert("Please Confirm Password");
+
+            else if (password1 != password2) {
+                alert("Password Did Not Match!!!\nPlease try again...")
+                form.password.value = null
+                form.confirm_password.value = null
+                window.location.reload()
+            } else {
+                form.method = 'post'
+                form.action = '/register_hotel'
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="loginbox">
+
+        <img src="assets/images/pic2.jpg" class="avatar">
+        <h1>Xenia Signup</h1>
+        <form id="register" onSubmit="checkPassword()">
+            <div class="row">
+                <div class="column">
+                    <p>Email ID *</p>
+                    <input type="email" name="email" placeholder="Enter Email ID" required>
+                    <p>Hotel Name *</p>
+                    <input type="text" name="name" placeholder="Enter Hotel Name" required>
+                    <p>Classic Room Cost *</p>
+                    <input type="text" name="classicrm" placeholder="Enter Cost of Classic Room" required>
+                    <p>Deluxe Room Cost *</p>
+                    <input type="text" name="deluxerm" placeholder="Enter Cost of Deluxe Room" required>
+
+                    <p>Classic Room Available *</p>
+                    <input type="text" name="classicrma" placeholder="Enter Number of Classic Rooms" required>
+                    <p>Deluxe Room Available *</p>
+                    <input type="text" name="deluxerma" placeholder="Enter Number of Deluxe Rooms" required>
+                </div>
+
+                <div class="column">
+                    <p>Contact Number *</p>
+                    <input type="number" name="contactnum" placeholder="Enter Contact Number" required>
+                    <p>Username *</p>
+                    <input type="text" name="username" placeholder="Enter Username" required>
+                    <p>Password *</p>
+                    <input type="password" name="password" placeholder="Enter Password" required>
+                    <p>Confirm Password *</p>
+                    <input type="password" name="confirm_password" placeholder="Enter Password" required>
+                    <input type="submit" name="" value="Submit">
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body>
+
+</html>
